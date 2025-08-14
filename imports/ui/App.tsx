@@ -1,11 +1,28 @@
+import { ConfigProvider, Switch, theme} from 'antd';
 import React from 'react';
-import { Hello } from './Hello';
-import { Info } from './Info';
+import { publicRoutes } from '../utils/constants/routes';
 
-export const App = () => (
-  <div>
-    <h1>Welcome to Meteor!</h1>
-    <Hello />
-    <Info />
-  </div>
-);
+interface AppProps {}
+
+const App: React.FC<AppProps> = () => {
+  return (
+    <>
+      <ConfigProvider
+      theme={{
+        algorithm: theme.defaultAlgorithm,
+      }}
+      >
+      Hello World
+        <Switch>
+          {Object.values(publicRoutes).map(route => (
+            <Route>
+
+            </Route>
+        ))}
+        </Switch>
+      </ConfigProvider>
+    </>
+  )
+}
+
+export default App;
